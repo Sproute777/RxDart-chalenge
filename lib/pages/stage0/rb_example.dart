@@ -3,14 +3,14 @@ import 'package:flutter/services.dart';
 import 'dart:convert';
 
 
-class RBExample extends StatefulWidget {
-  RBExample({Key? key}) : super(key: key);
+class Stage0 extends StatefulWidget {
+  Stage0({Key? key}) : super(key: key);
 
   @override
-  _RBExampleState createState() => _RBExampleState();
+  _Stage0State createState() => _Stage0State();
 }
 
-class _RBExampleState extends State<RBExample> {
+class _Stage0State extends State<Stage0> {
  var messages = const [];
 
 Future loadMessageList() async{
