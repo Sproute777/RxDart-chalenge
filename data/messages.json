@@ -1,0 +1,23 @@
+[
+    {
+        "subject": "My first message",
+        "body": 
+        "some text for example !"
+    },
+    {
+        "subject": "My first message",
+        "body": "any letters this in line."
+    },
+    {
+        "subject": "My thirs message",
+        "body": "third body text "
+    },
+    {
+        "subject": "My fourth message",
+        "body": "fourth text in body"
+    },
+    {
+        "subject": "My fifth message",
+        "body": "fifth text in body"
+    }
+]
