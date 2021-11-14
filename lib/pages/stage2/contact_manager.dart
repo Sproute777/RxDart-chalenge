@@ -10,14 +10,14 @@ class ContactManager{
 
   Stream<List<Contact>> get contactListNow async*{
      yield await ContactService.fetchUsers() as List<Contact>;
-
     }
   
-
 final StreamController<int> _contactCounter = StreamController<int>();
 Stream<int> get contactCounter => _contactCounter.stream;
 
 ContactManager(){
-  contactListNow.listen((event) { _contactCounter.add(event.length); });
+  contactListNow.listen((event) { _contactCounter.add(event.length); });  
 }
+
+
 }

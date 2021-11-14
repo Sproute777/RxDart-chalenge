@@ -10,16 +10,17 @@ ContactManager manager = ContactManager();
   @override
   Widget build(BuildContext context) {
    return  Scaffold(
-            appBar: AppBar(title: const Text("stage2 stream easy"),
-               leading:  Chip(
-                  label: StreamBuilder<int>(
-                  stream: manager.contactCounter,
-                  builder: (context, snapshot){
-                    return  Text(
-               (snapshot.data ?? 0).toString(),
+         appBar: AppBar(
+                 title: const Text("stage2 stream easy"),
+                 leading: Chip(
+                    label: StreamBuilder<int>(
+                    stream: manager.contactCounter,
+                    builder: (context, snapshot){
+                      return 
+         Text( (snapshot.data ?? 0).toString(),
                  style: const TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold
                ),
              );
              },
