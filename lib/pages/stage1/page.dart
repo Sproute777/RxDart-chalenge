@@ -1,7 +1,7 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:flutter_stream_search/pages/stage1/contact_manager.dart';
+
+
 
 class Stage1 extends StatelessWidget {
    Stage1({Key? key}) : super(key: key);

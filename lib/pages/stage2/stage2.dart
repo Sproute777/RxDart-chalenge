@@ -1,11 +1,11 @@
 
 import 'package:flutter/material.dart';
-import 'package:flutter_stream_search/pages/stage2/contact2.dart';
-import 'package:flutter_stream_search/pages/stage2/contact_manager2.dart';
+import 'package:flutter_stream_search/pages/stage2/contact_model.dart';
+import 'package:flutter_stream_search/pages/stage2/contact_manager.dart';
 
 class Stage2 extends StatelessWidget {
    Stage2({Key? key}) : super(key: key);
-ContactManager2 manager = ContactManager2();
+ContactManager manager = ContactManager();
 
   @override
   Widget build(BuildContext context) {
@@ -27,10 +27,10 @@ ContactManager2 manager = ContactManager2();
            backgroundColor: Colors.purple,
           )
         ),
-        body: StreamBuilder<List<Contact2>>(
+        body: StreamBuilder<List<Contact>>(
 
           stream: manager.contactListNow,
-          builder: (context,  AsyncSnapshot<List<Contact2>> snapshot){
+          builder: (context,  AsyncSnapshot<List<Contact>> snapshot){
          
               switch (snapshot.connectionState) {
                 case ConnectionState.none:
@@ -39,12 +39,12 @@ ContactManager2 manager = ContactManager2();
                   return const Center(child: CircularProgressIndicator(),);  
 
                 case ConnectionState.done:             
-            List<Contact2> contacts = snapshot.data!;
+            List<Contact> contacts = snapshot.data!;
             return ListView.separated(
               padding: const EdgeInsets.only(right: 100),
               cacheExtent: 100,
               itemBuilder: (context,int index){
-                Contact2 _contact = contacts[index];
+                Contact _contact = contacts[index];
                 return ListTile(
                   title: Text(_contact.name),
                   subtitle: Text(_contact.email),             

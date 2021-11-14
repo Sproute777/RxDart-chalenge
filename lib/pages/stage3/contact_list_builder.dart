@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_stream_search/pages/stage3/contact3.dart';
+import 'package:flutter_stream_search/pages/stage3/contact_model.dart';
 
 
 
-class Contact3ListBuilder extends StatelessWidget {
-  final Stream<List<Contact3>> stream;
+class ContactListBuilder extends StatelessWidget {
+  final Stream<List<Contact>> stream;
   final Function builder;
-  const Contact3ListBuilder({Key? key, required this.stream, required this.builder}) : super(key: key);
+  const ContactListBuilder({Key? key, required this.stream, required this.builder}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return  StreamBuilder<List<Contact3>>(
+    return  StreamBuilder<List<Contact>>(
 
           stream: stream,
-          builder: (context,  AsyncSnapshot<List<Contact3>> snapshot){
+          builder: (context,  AsyncSnapshot<List<Contact>> snapshot){
          
               switch (snapshot.connectionState) {
                 case ConnectionState.none:
@@ -22,7 +22,7 @@ class Contact3ListBuilder extends StatelessWidget {
                   return const Center(child: CircularProgressIndicator(),);  
 
                 case ConnectionState.done:             
-            List<Contact3> contacts = snapshot.data!;
+            List<Contact> contacts = snapshot.data!;
             return builder(context, contacts);
           } }
            );    
