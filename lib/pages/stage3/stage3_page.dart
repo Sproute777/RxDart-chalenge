@@ -30,7 +30,7 @@ ContactManager3 manager = ContactManager3();
             Padding(
               padding: const EdgeInsets.symmetric(horizontal:32.0),
               child: IconButton(onPressed: (){
-               showSearch(context: context, delegate: ContactSearchDelegate3());
+               showSearch(context: context, delegate: ContactSearchDelegate3(manager: manager));
               }, icon: const Icon(Icons.search)),
             ),
           

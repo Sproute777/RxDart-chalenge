@@ -1,18 +1,17 @@
-
 import 'dart:async';
-
 import 'package:flutter_stream_search/pages/stage3/contact3.dart';
 import 'package:flutter_stream_search/pages/stage3/contact_service3.dart';
 
 
-List<String> contacts = ["User 1", "User 2", "User 3", "User 4", "User 5" ];
-
 class ContactManager3{
+  Stream<List<Contact3>> get contactListNow =>
+   Stream.fromFuture(ContactService3.fetchUsers()) ;
 
-  Stream<List<Contact3>> get contactListNow async*{
-     yield await ContactService3.fetchUsers() as List<Contact3>;
 
-    }
+  Stream<List<Contact3>> filteredCollection({query}) =>
+   Stream.fromFuture(ContactService3.fetchUsers(query: query)) ;
+
+    
   
 
 final StreamController<int> _contactCounter = StreamController<int>();

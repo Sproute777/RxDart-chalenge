@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_stream_search/pages/stage0/stage0.dart';
-import 'package:flutter_stream_search/pages/stage1/stage1.dart';
-import 'package:flutter_stream_search/pages/stage2/stage2.dart';
-import 'package:flutter_stream_search/pages/stage3/stage3.dart';
+import 'package:flutter_stream_search/pages/stage0/stage0_page.dart';
+import 'package:flutter_stream_search/pages/stage1/stage1_page.dart';
+import 'package:flutter_stream_search/pages/stage2/stage2_page.dart';
+import 'package:flutter_stream_search/pages/stage3/stage3_page.dart';
 
 void main() {
   runApp( const MyApp());

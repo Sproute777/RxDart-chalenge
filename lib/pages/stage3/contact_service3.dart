@@ -7,15 +7,19 @@ import 'package:http/http.dart' as http;
 class ContactService3 {
   static const String _url = "https://jsonplaceholder.typicode.com/users";
 
-  static Future fetchUsers() async {
+  static Future<List<Contact3>> fetchUsers({query}) async {
+
    http.Response response = await http.get(Uri.parse(_url));
    await Future.delayed( const Duration(seconds: 3));
 
    String content = response.body;
    List collection = json.decode(content);
-   List<Contact3> _messages = 
-   collection.map((json)=> Contact3.fromJson(json)).toList();
-   print("lenght contact2 is ${_messages.length}");
-   return _messages;
+
+   Iterable<Contact3> _contacts = 
+   collection.map((_)=> Contact3.fromJson(_));
+ if(query != null && query.isNotEmpty){
+   _contacts = _contacts.where((contact) => contact.name.toLowerCase().contains(query));
+ }
+   return _contacts.toList();
   }
 }
