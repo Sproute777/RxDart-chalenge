@@ -1,16 +1,16 @@
-
 import 'package:flutter/material.dart';
-import 'package:flutter_stream_search/pages/stage2/contact2.dart';
-import 'package:flutter_stream_search/pages/stage2/contact_manager2.dart';
+import 'package:flutter_stream_search/pages/stage3/contact3.dart';
+import 'package:flutter_stream_search/pages/stage3/contact_manager3.dart';
+import 'package:flutter_stream_search/pages/stage3/contact_search3.dart';
 
-class Stage2 extends StatelessWidget {
-   Stage2({Key? key}) : super(key: key);
-ContactManager2 manager = ContactManager2();
+class Stage3 extends StatelessWidget {
+  Stage3({Key? key}) : super(key: key);
+ContactManager3 manager = ContactManager3();
 
   @override
   Widget build(BuildContext context) {
    return  Scaffold(
-            appBar: AppBar(title: const Text("stage2 stream easy"),
+            appBar: AppBar(title: const Text("stage3 stream easy"),
                leading:  Chip(
                   label: StreamBuilder<int>(
                   stream: manager.contactCounter,
@@ -25,12 +25,21 @@ ContactManager2 manager = ContactManager2();
              },
            ),
            backgroundColor: Colors.purple,
-          )
+          ),
+          actions: [
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal:32.0),
+              child: IconButton(onPressed: (){
+               showSearch(context: context, delegate: ContactSearchDelegate3());
+              }, icon: const Icon(Icons.search)),
+            ),
+          
+          ],
         ),
-        body: StreamBuilder<List<Contact2>>(
+        body: StreamBuilder<List<Contact3>>(
 
           stream: manager.contactListNow,
-          builder: (context,  AsyncSnapshot<List<Contact2>> snapshot){
+          builder: (context,  AsyncSnapshot<List<Contact3>> snapshot){
          
               switch (snapshot.connectionState) {
                 case ConnectionState.none:
@@ -39,12 +48,12 @@ ContactManager2 manager = ContactManager2();
                   return const Center(child: CircularProgressIndicator(),);  
 
                 case ConnectionState.done:             
-            List<Contact2> contacts = snapshot.data!;
+            List<Contact3> contacts = snapshot.data!;
             return ListView.separated(
               padding: const EdgeInsets.only(right: 100),
               cacheExtent: 100,
               itemBuilder: (context,int index){
-                Contact2 _contact = contacts[index];
+                Contact3 _contact = contacts[index];
                 return ListTile(
                   title: Text(_contact.name),
                   subtitle: Text(_contact.email),             

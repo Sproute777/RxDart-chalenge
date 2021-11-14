@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_stream_search/pages/stage0/rb_example.dart';
-import 'dart:convert';
-
-import 'package:flutter_stream_search/pages/stage1/stream_stage1.dart';
+import 'package:flutter_stream_search/pages/stage0/stage0.dart';
+import 'package:flutter_stream_search/pages/stage1/stage1.dart';
+import 'package:flutter_stream_search/pages/stage2/stage2.dart';
+import 'package:flutter_stream_search/pages/stage3/stage3.dart';
 
 void main() {
-  runApp( MyApp());
+  runApp( const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -15,10 +14,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      initialRoute: "/stage1",
+      initialRoute: "/stage3",
       routes: {
-        "/": (context) => Stage0(),
-        "/stage1":(context) => Stage1(),
+        '/': (context) => Stage0(),
+        '/stage1':(context)=> Stage1(),
+        '/stage2':(context)=> Stage2(),
+        '/stage3':(context)=> Stage3(), 
       },
     );
   }
