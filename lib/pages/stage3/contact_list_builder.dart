@@ -4,7 +4,7 @@ import 'package:flutter_stream_search/pages/stage3/contact_model.dart';
 
 
 class ContactListBuilder extends StatelessWidget {
-  final Stream<List<Contact>> stream;
+  final Stream stream;
   final Function builder;
   const ContactListBuilder({Key? key, required this.stream, required this.builder}) : super(key: key);
 
@@ -12,7 +12,7 @@ class ContactListBuilder extends StatelessWidget {
   Widget build(BuildContext context) {
     return  StreamBuilder<List<Contact>>(
 
-          stream: stream,
+          stream: stream as Stream<List<Contact>>,
           builder: (context,  AsyncSnapshot<List<Contact>> snapshot){
          
               switch (snapshot.connectionState) {
